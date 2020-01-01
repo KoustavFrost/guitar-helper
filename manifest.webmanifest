@@ -1,0 +1,13 @@
+{
+    "name": "Guitar Helper",
+    "short_name": "Guitar Helper",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Just a small app to practice fretting.",
+    "icons": [{
+        "src": "./assets/image/electric-guitar-256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+    }]
+}

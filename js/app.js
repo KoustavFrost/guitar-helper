@@ -1,3 +1,18 @@
+// Loading the service worker files
+window.addEventListener('load', () => {
+    registerSW();
+});
+
+async function registerSW() {
+    if ('serviceWorker' in navigator) {
+        try {
+            await navigator.serviceWorker.register('../sw.js');
+        } catch (e) {
+            console.log(`SW registration failed`);
+        }
+    }
+}
+
 let showCombo = document.getElementById('show_combo_btn');
 let setIntervalCheckBox = document.getElementById('set_interval');
 let initCombi;
@@ -6,6 +21,7 @@ showCombo.addEventListener('click', () => {
     showCombinations();
     if (setIntervalCheckBox.checked) {
         let interval = document.getElementById('interval');
+        $('#stop_combo').show();
         initCombi = setInterval(() => {
             showCombinations();
         }, (interval.value) * 1000);
@@ -17,13 +33,10 @@ showCombo.addEventListener('click', () => {
 
 setIntervalCheckBox.addEventListener('click', () => {
     let intervalSection = document.getElementById('interval_section');
-    let stopBtn = document.getElementById('stop_combo');
     if (setIntervalCheckBox.checked) {
         intervalSection.style.display = 'block';
-        stopBtn.style.display = 'block';
     } else {
         intervalSection.style.display = 'none';
-        stopBtn.style.display = 'none';
     }
 })
 
@@ -34,7 +47,7 @@ const showCombinations = () => {
     let fret = getRandom(fretNo);
     let string = getRandom(stringNo);
 
-    document.getElementById('combo').innerHTML = fret + " , " + string;
+    document.getElementById('combo').value = fret + " , " + string;
 }
 
 const getRandom = (limit) => {

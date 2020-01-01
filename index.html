@@ -1,41 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Linking manifest files -->
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <!-- Linking the css files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <title>Guitar Helper</title>
-</head>
+  </head>
 
-<body>
-    <div id="fretting">
-        <div id="fret">
-            <label for="frets_no">No of Frets: </label>
-            <input type="number" name="" id="frets_no">
+  <body>
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
+
+    <!-- Main body -->
+    <div class="container mt-3">
+      <div class="jumbotron text-center">
+        <h4>Guitar Helper</h4>
+        <p>
+          Enter the number of frets you have in your guitar and the number of
+          string to generate the random string and fret combinations
+        </p>
+      </div>
+      <div id="fretting">
+        <div id="fret" class="form-group">
+          <label for="frets_no">No of Frets: </label>
+          <input class="form-control" type="number" name="" id="frets_no" />
         </div>
-        <div id="strings">
-            <label for="strings_no">No of Strings: </label>
-            <input type="number" name="" id="strings_no">
+        <div id="strings" class="form-group">
+          <label for="strings_no">No of Strings: </label>
+          <input class="form-control" type="number" name="" id="strings_no" />
         </div>
         <div>
-            <label for="set_interval">Want to set interval?</label>
-            <input type="checkbox" name="" id="set_interval">
+          <div class="form-group form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name=""
+              id="set_interval"
+            />
+            <label for="set_interval" class="form-check-label"
+              >Want to set interval?</label
+            >
+          </div>
 
-            <div id="interval_section" style="display: none;">
-                <label for="interval">Interval (in sec)</label>
-                <input type="number" id="interval">
-            </div>
+          <div id="interval_section" style="display: none;" class="form-group">
+            <label for="interval">Interval (in sec)</label>
+            <input class="form-control" type="number" id="interval" />
+          </div>
         </div>
-        <div>
-            <button id="show_combo_btn">Show Combo</button>
-            <button style="display: none;" id="stop_combo" onclick="clearInterval(initCombi)">Stop</button>
+        <div class="text-center">
+          <button id="show_combo_btn" class="btn btn-success">
+            Show Combo
+          </button>
+          <button
+            class="btn btn-danger"
+            style="display: none;"
+            id="stop_combo"
+            onclick="clearInterval(initCombi)"
+          >
+            Stop
+          </button>
         </div>
-        <div id="show_combo">
-            Your Combination: <span id="combo"></span>
+        <div id="show_combo" class="form-group">
+          <label for="combo">Your Combination:</label>
+          <input class="form-control" id="combo" readonly />
         </div>
+      </div>
     </div>
-    <script src="js/app.js"></script>
-</body>
 
+    <!-- Linking the script files -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
